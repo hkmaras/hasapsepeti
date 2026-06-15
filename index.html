@@ -472,11 +472,15 @@
         fetch(API, {
           method: "POST",
           body: JSON.stringify({
-            isim: name,
-            telefon: phone,
-            adres: address,
-            urun: item.name,
-            miktar: `${item.qty} ${item.unit}`
+    isim: name,
+    telefon: phone,
+    adres: address,
+    urun: item.name,
+    miktar: item.qty,
+    birimFiyat: item.price,
+    toplam: item.qty * item.price,
+    teslimat: deliveryDay,
+    siparisTipi: orderType
           })
         }).catch(err => console.log("Veritabanı hatası:", err));
       });
